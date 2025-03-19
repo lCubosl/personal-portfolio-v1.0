@@ -1,0 +1,382 @@
+/* ---------------------------------------- colors ---------------------------------------- */
+:root {
+  --color-bg1: rgb(18, 18, 18);
+  --color-bg2: rgb(55, 56, 58);
+  --color1: 255, 210, 151;
+  --color3: 226, 141, 119;
+  --color4: 101, 131, 210;
+  --color5: 202, 38, 65;
+  --color-interactive: 240, 240, 255;
+  --circle-size: 15%;
+  --blending: hard-light;
+  --opacity: 1;
+}
+
+/* ---------------------------------------- general ---------------------------------------- */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+svg {
+  display: none;
+}
+
+h3 {
+  font-size: 3rem;
+  font-weight: 600;
+  margin-top: -10px;
+}
+
+h4 {
+  font-size: 2rem;
+}
+
+/* -------------------------------------- nav divider -------------------------------------- */
+.info-main-container {
+  display: flex;
+  align-items: center;
+}
+
+.info-container {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  height: 300px;
+  width: 100vw;
+}
+
+.name {
+  z-index: 1;
+  left: 30%;
+}
+
+.divider {
+  z-index: 2;
+  position: absolute;
+  left: calc(20%);
+  background-color: #ffffff9f;
+  height: 100%;
+  width: 1px;
+  border-radius: 3px;
+}
+
+.location {
+  z-index: 1;
+  left: calc(100vw - 300px);
+  background-color: #ffffff;
+  width: 300px;
+  height: 140px;
+  border-radius: 70px 0 0 70px;
+}
+
+/* ---------------------------------------- center text ---------------------------------------- */
+.text-color {
+  background-image: linear-gradient(to right, #ffffff, #fcd297, #ca2641, #ca2641);
+  background-clip: text;
+  color: transparent;
+}
+
+/* ------------------------------------- animation text ------------------------------------- */
+.move-top-text {
+  font-weight:600;
+  transform: translateX(140px) translateY(-74px);
+  font-size: 1.2rem;
+  transition: transform 0.3s ease-in-out, font-size 0.3s ease-in-out, font-weight 0.3s ease-in-out;
+}
+
+.disapear-bottom-text{
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+/* ------------------------------------- toggle visibility ------------------------------------- */
+.name.hidden {
+  display: none;
+}
+
+/* ---------------------------------------- globe ---------------------------------------- */
+.globe-text {
+  z-index: 2;
+  position: absolute;
+  color: #37383a;
+  font-size: 1.2rem;
+  line-height: 120%;
+  left: 150px;
+  top: 45px;
+}
+
+@keyframes main-globe-rotation {
+  0% {transform: rotateZ(-20deg);}
+  50% {transform: rotateZ(30deg);}
+  100% {transform: rotateZ(-20deg);}
+}
+
+@keyframes globe-rotation {
+  0% {width: 100%; border: 3px solid #fff;}
+  95% {border-radius: 50%; border: 4px solid #fff;}
+  100% {width: 0%; border-radius: 0%; border: 0px solid #fff;}
+}
+
+@keyframes globe-rotation-reversed {
+  0% {width: 0%; border-radius: 0%; border: 0px solid #fff;}
+  5% {border-radius: 50%; border: 4px solid #fff;}
+  100% {width: 100%; border: 3px solid #fff;}
+}
+
+.globe, .globe-bg {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #37383a;
+}
+
+.globe-hero-offset {
+  position: relative;
+  top: 20px;
+  left: 20px;
+}
+
+.globe {
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 20px solid #37383a; /* change globe size here */
+  border-radius: 50%;
+  animation: main-globe-rotation 10s infinite ease-in-out;
+}
+
+.globe-ring1 {
+  position: absolute;
+  border: 3px solid #fff;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.globe-ring2 {
+  position: absolute;
+  border: 3px solid #fff;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  clip-path: polygon(50% 0, 50% 100%, 100% 100%, 100% 0);
+  animation: globe-rotation-reversed 2s ease-out infinite;
+  animation-delay: 1.9s;
+}
+
+.globe-ring3 {
+  position: absolute;
+  border: 3px solid #fff;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  clip-path: polygon(0 0, 0 100%, 50% 100%, 50% 0);
+  animation: globe-rotation 2s ease-in infinite;
+}
+
+.globe-ring4 {
+  position: absolute;
+  border: 3px solid #fff;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  clip-path: polygon(0 0, 0 100%, 50% 100%, 50% 0);
+  animation: globe-rotation 2s ease-in infinite;
+  animation-delay: 1s;
+}
+
+.globe-ring5 {
+  position: absolute;
+  border: 3px solid #fff;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  clip-path: polygon(50% 0, 50% 100%, 100% 100%, 100% 0);
+  animation: globe-rotation-reversed 2s ease-out infinite;
+  animation-delay: 0.9s;
+}
+
+.globe-ring-vert {
+  z-index: 0;
+  position: absolute;
+  border: 3px solid #fff;
+  width: 120%;
+  height: 40%;
+  border-radius: 50%;
+  clip-path: circle(52%);
+}
+
+/* ---------------------------------------- Background ---------------------------------------- */
+
+@keyframes moveInCircle {
+  0% {transform: rotate(0deg);}
+  50% {transform: rotate(100deg);}
+  100% {transform: rotate(360deg);}
+}
+
+@keyframes moveVertical {
+  0% {transform: translateY(-20%);}
+  50% {transform: translateY(20%);}
+  100% {transform: translateY(-20%);}
+}
+
+@keyframes moveHorizontal {
+  0% {transform: translateX(-5%) translateY(-3%);}
+  50% {transform: translateX(10%) translateY(7%);}
+  100% {transform: translateX(-5% translateY(-3%));}
+}
+
+.gradient-bg {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  overflow: hidden;
+  background: radial-gradient(var(--color-bg2), var(--color-bg1));
+}
+
+.gradient-container {
+  filter: url(#goo) blur(100px);
+  width: 100%;
+  height: 100%;
+}
+
+.g1 {
+  position: absolute;
+  background: radial-gradient(circle at center, rgba(var(--color1), 0.8) 0%, rgba(var(--color1), 0) 70%) no-repeat;
+  mix-blend-mode: var(--blending);
+  width: var(--circle-size);
+  height: var(--circle-size);
+  top: calc(50% - var(--circle-size) / 2);
+  left: calc(50% - var(--circle-size) / 2);
+  transform-origin: center center;
+  animation: moveVertical 30s ease infinite;
+  opacity: var(--opacity);
+}
+
+.g3 {
+  position: absolute;
+  background: radial-gradient(circle at center, rgba(var(--color3), 0.8) 0%, rgba(var(--color3), 0) 70%) no-repeat;
+  mix-blend-mode: var(--blending);
+  width: var(--circle-size);
+  height: var(--circle-size);
+  top: calc(50% - var(--circle-size) / 2);
+  left: calc(50% - var(--circle-size) / 2 + 50px);
+  transform-origin: calc(50% + 100px);
+  animation: moveInCircle 40s linear infinite;
+  opacity: var(--opacity);
+}
+
+.g4 {
+  position: absolute;
+  background: radial-gradient(circle at center, rgba(var(--color4), 0.8) 0%, rgba(var(--color4), 0) 70%) no-repeat;
+  mix-blend-mode: var(--blending);
+  width: var(--circle-size);
+  height: var(--circle-size);
+  top: calc(50% - var(--circle-size) / 2 + 100px);
+  left: calc(50% - var(--circle-size) / 2 + 250px);
+  transform-origin: calc(50% - 100px);
+  animation: moveHorizontal 40s ease infinite;
+  opacity: var(--opacity);
+}
+
+.g5 {
+  position: absolute;
+  background: radial-gradient(circle at center, rgba(var(--color5), 0.8) 0%, rgba(var(--color5), 0) 70%) no-repeat;
+  mix-blend-mode: var(--blending);
+  width: calc(var(--circle-size) * 2);
+  height: calc(var(--circle-size) * 2);
+  top: calc(50% - var(--circle-size) / 2);
+  left: calc(50% - var(--circle-size) / 2);
+  transform-origin: calc(50% - 140px);
+  animation: moveInCircle 20s ease infinite;
+  opacity: var(--opacity);
+}
+
+.interactive {
+  position: absolute;
+  background: radial-gradient(circle at center, rgba(var(--color-interactive), 0.9) 0%, rgba(var(--color-interactive), 0) 50%) no-repeat;
+  mix-blend-mode: var(--blending);
+  width: 100%;
+  height: 100%;
+  top: -50%;
+  left: -50%;
+  opacity: 0.1;
+}
+
+/* ---------------------------------------- media queries ---------------------------------------- */
+@media (max-height: 600px) {
+  .move-top-text {
+    display: none;
+  }  
+}
+
+@media (max-width: 1100px) {
+  /* mudar o nome de posiçao depois do almoço */
+  .move-top-text {
+    transform: translateX(50px) translateY(-110px);
+  }  
+
+  .location {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .divider {
+    display: none;
+  }
+}
+
+@media (max-width: 750px) {
+  .move-top-text {
+    display: none;
+  }
+
+  .info-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .name {
+    left: auto;
+  }
+}
+
+@media (max-width: 550px) {
+  .info-container {
+    justify-content: center;
+    left: auto;
+  }
+
+  .name {
+    padding: 10px 40px;
+    width: 350px;
+  }
+
+  .top-text {
+    line-height: 200%;
+  }
+
+  .bottom-text {
+    line-height: 100%;
+  }
+
+  .bottom-text .text-color {
+    font-size: 3.3rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .info-container {
+    justify-content: flex-start;
+    left: auto;
+  }
+
+  .name {
+    padding: 10px 40px;
+    width: 350px;
+  }
+}

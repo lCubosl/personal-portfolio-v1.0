@@ -1,0 +1,296 @@
+/* ---------------------------------------- general ---------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.work {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.work-container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: calc(30% - 50px - 10px);
+  font-size: 1.2rem;
+  gap: 20px;
+}
+
+/* ---------------------------------------- toggle visibility ---------------------------------------- */
+.work {
+  display: none;
+}
+
+.work.visible {
+  display: block;
+  opacity: 1;
+}
+
+.description-container {
+  position: relative;
+}
+
+.work-link {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+}
+
+/* ---------------------------------------- arrow ---------------------------------------- */
+.work-arrow img {
+  filter: invert(100%);
+}
+
+.work-arrow {
+  display: inline-block;
+  margin-left: 5px;
+  width: 0.8rem;
+  height: 0.8rem;
+}
+
+.position1-container:hover .work-arrow {
+  transform: translate(5px, -5px);
+  transition: transform 200ms ease-in-out;
+}
+
+/* ---------------------------------- buttons animation (non touchable) ---------------------------------- */
+.work-btn-container {
+  transform: translate(var(--btn-offset-x, 0px), var(--btn-offset-y, 0px));
+  transition: transform 0.3s ease-out;
+}
+
+.work-btn-inner-container {
+  transform: translate(var(--inner-btn-offset-x, 0px), var(--inner-btn-offset-y, 0px));
+  transition: transform 0.3s ease-out;
+}
+
+/* ---------------------------------------- buttons (non touchable) ---------------------------------------- */
+.work-btn-text {
+  color: #37383a;
+  font-size: 1rem;
+}
+
+.work-btns-container {
+  display: flex;
+  gap: 10px;
+  z-index: 3;
+}
+
+.work-btn-container {
+  z-index: 2;
+  position: relative;
+  text-align: center;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.work-btn {
+  position: relative;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 6px 15px;
+  border-radius: 27px;
+}
+
+.work-btn-container:hover {
+  opacity: 0.8;
+  transition: opacity 200ms ease-in-out;
+}
+
+.work-btn-container:hover::before {
+  opacity: 1;
+}
+
+.work-btn-container::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffffea;
+  border-radius: 27px;
+  left: 0;
+  top: 0;
+}
+
+.work-btn-container::before {
+  z-index: -1;
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #fff, #8d8d8d, #fff
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 600%;
+  width: calc(100% + 1px);
+  height: calc(100% + 1px);
+  filter: blur(4px);
+  animation: glow 20s linear infinite;
+  transition: opacity .3s ease-in-out;
+  border-radius: 27px;
+  opacity: 0;
+}
+
+@keyframes glow {
+  0%{background-position: 0 0;}
+  50%{background-position: 400% 0;}
+  100%{background-position: 0 0;}
+}
+
+/* ---------------------------------------- scroll-container ---------------------------------------- */
+.work-scroll-container {
+  max-height: 350px;
+  overflow: auto;
+  scrollbar-width: none;
+}
+
+/* ---------------------------------------- arrow buttons ---------------------------------------- */
+.arrow-btn-position {
+  height: 250px;
+  width: 50px;
+}
+
+.arrow-btn-container {
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
+}
+
+.arrow-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  opacity: 0.5;
+  transition: transform 0.2s ease-out;
+}
+
+.globe-btn-offset {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  transform: scale(0.4);
+}
+
+.globe-btn-offset .globe {
+  background-color: #fff;
+  border: 15px solid #fff;
+}
+
+.globe-btn-offset .globe * {
+  border: 4px solid #37383a !important;
+}
+
+.arrow-btn-container:hover .arrow-btn {
+  opacity: 1;
+  transform: translate(var(--arrow-btn-offset-x, 0px), var(--arrow-btn-offset-y, 0px)) scale(1.2);
+  transition: transform 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+}
+
+.arrow-symbol.arrow-up {
+  transform: translateY(-30px);
+  transition: transform 200ms ease-out;
+}
+
+.arrow-symbol.arrow-down {
+  transform: translateY(30px);
+  transition: transform 200ms ease-out;
+}
+
+/* ---------------------------------------- focus on hovered ---------------------------------------- */
+.position1-container:hover {
+  opacity: 1;
+  transition: opacity 200ms ease-in-out;
+}
+
+.position1-container.faded {
+  opacity: 0.3;
+  transition: opacity 200ms ease-in-out;
+}
+
+/* ---------------------------------------- text formating ---------------------------------------- */
+.position1-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  max-width: 600px;
+  margin: 0 auto;
+  opacity: 0.7;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.time {
+  font-size: 1rem;
+  min-width: 120px;
+}
+
+.position-title {
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+}
+
+.position-description {
+  font-size: 1rem;
+  opacity: 0.6;
+  margin-bottom: 10px;
+}
+
+/* ---------------------------------------- media queries ---------------------------------------- */
+@media (max-height: 900px) {
+  .work-container {
+    align-items: flex-start;
+    top: 150px;
+  }
+
+  .work-scroll-container {
+    height: calc(100vh - 200px);
+  }
+}
+
+@media (max-width: 750px) {
+  .main-container-center {
+    display: flex;
+    justify-content: center;
+  }
+
+  .work-scroll-container {
+    max-height: 550px;
+  }
+  
+  .work-container {
+    left: auto;
+    margin: 20px;
+  }
+}
+
+@media (max-width: 550px) {
+  .work-container {
+    padding: 10px 40px;
+  }
+
+  .work-scroll-container .position1-container {
+    flex-direction: column;
+  } 
+}

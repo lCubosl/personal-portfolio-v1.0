@@ -1,0 +1,98 @@
+/* ---------------------------------------- general ---------------------------------------- */
+body{
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------------------------------------- toggle visibility ---------------------------------------- */
+.mobileNavActive {
+  display: none;
+}
+
+.mobileNavActive.invisible {
+  display: none;
+}
+
+.mobileNavActive.visible {
+  display: block;
+}
+
+/* ---------------------------------------- aaaaaaaaaaaaaa ---------------------------------------- */
+.mobile-nav {
+  position: absolute;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  color: #37383a;
+  background-color: #ffffffaf;
+}
+
+.mobile-nav .text {
+  font-size: .8rem;
+  font-weight: bold;
+  opacity: 0.5;
+}
+
+.horizontal-line {
+  background-color: #37383a;
+  width: 300px;
+  height: 1px;
+  opacity: 0.3;
+  margin: 20px auto;
+}
+
+.mobile-nav-ul {
+  display: flex;
+  flex-direction: column;
+  margin-left: calc(-20px - 1rem);
+}
+
+.mobile-nav-ul .mobile-nav-li {
+  display: flex;
+  align-items: center;
+  font-size: 3rem;
+  cursor: pointer;
+  width: auto;
+  line-height: 120%;
+  transition: transform 100ms ease-out;
+}
+
+.mobile-nav-li .circle {
+  display: inline-block;
+  font-size: 1rem;
+  margin-right: 20px;
+  vertical-align: middle;
+  height: 3rem;
+  opacity: 0;
+  transform: translateY(-5px);
+}
+
+.mobile-nav-li:hover .circle.visible {
+  opacity: 1;
+  transition: opacity 200ms ease-out;
+}
+
+.mobile-nav-li:hover {
+  transform: translate(calc((20px + 1rem) + var(--btn-offset-x, 0px)), var(--btn-offset-y, 0px));
+  transition: transform 200ms ease-out;
+}
+
+.mobile-socials-container .socials-text {
+  color: #fff;
+}
+
+.mobile-socials-container .socials-text {
+  background-color: #37383a;
+}
+
+/* ---------------------------------------- media querries ---------------------------------------- */
+@media (max-width: 750px) {
+  .mobile-nav {
+    display: flex;
+  }
+}

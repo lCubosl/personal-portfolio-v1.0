@@ -1,0 +1,308 @@
+/* ---------------------------------------- general ---------------------------------------- */
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+body{
+  margin: 0;
+}
+
+/* ----------------------------------------  ---------------------------------------- */
+.app {
+  position: relative;
+  text-align: left;
+  transition: left, right, bottom, top, cubic-bezier(0.25, 1, 0.5, 1) 300ms;
+}
+
+.app:hover {
+  left: calc(var(--dock-offset-right, 0px));
+  right: calc(var(--dock-offset-left, 0px));
+  top: calc(var(--dock-offset-bottom, 0px));
+  bottom: calc(var(--dock-offset-top, 0px));
+  padding-left: 10px;
+}
+
+.app:hover + .app {
+  transform: translateY(-5px);
+}
+
+.app:has(+ .app:hover) {
+  transform: translateY(5px);
+}
+
+.appIcons:hover {
+  left: calc(var(--dock-offset-right, 0px));
+  right: calc(var(--dock-offset-left, 0px));
+  top: calc(var(--dock-offset-bottom, 0px));
+  bottom: calc(var(--dock-offset-top, 0px));
+  margin-bottom: -50px;
+}
+
+.page {
+  display: flex;
+}
+
+.dock {
+  z-index: 10;
+  position: absolute;
+  height: 100%;
+}
+
+.dock-right-center {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  margin-top: -10px;
+}
+
+.nav-left {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 10px;
+}
+
+.nav-right {
+  display: flex;
+  justify-content: flex-end;
+  transform: translateX(7vw);
+}
+
+.appIcons {
+  transition: cubic-bezier(0.25, 1, 0.5, 1) 300ms;
+  z-index: 1;
+  position: absolute;
+  max-width: 150px;
+  max-height: 50px;
+}
+
+.dock ul, .navIcons ul {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.appIcons a {
+  padding: 1rem;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.app a {
+  padding: 1rem;
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 12px;
+  color: #fff;
+}
+
+.app:hover .more-info,
+.app:focus-within {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.app.clicked .more-info {
+  transform: scale(0);
+  opacity: 0;
+}
+
+.more-info {
+  text-decoration: none;
+  position: absolute;
+  transform: scale(0);
+  opacity: 0;
+  transition: transform 200ms ease-in, opacity 200ms ease-in-out;
+  display: block;
+  background: rgba(255, 255, 255, 0.911);
+  padding: 3px;
+  border-radius: 12px;
+  height: auto;
+  white-space: nowrap;
+  left: 10px;
+  top: 47%;
+}
+
+.code-by {
+  display: flex;
+  flex-direction: row;
+}
+
+/* ------------------------------------ top-left Cody By ------------------------------------ */
+.nav-left.hidden {
+  display: none;
+}
+
+@keyframes fullRotation {
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(360deg);}
+}
+
+@keyframes reverseRotation {
+  0% {transform: rotate(360deg);}
+  100% {transform: rotate(0deg);}
+}
+
+.rotating {
+  display: inline-block;
+  animation: fullRotation 0.5s ease-out;
+}
+
+.reverse {
+  display: inline-block;
+  animation: reverseRotation 0.5s ease-out;
+}
+
+#changeText {
+  position: absolute;
+  display: block;
+  width: 100px;
+  height: inherit;
+  left: 2.3rem;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+@keyframes textPos {
+  0% {transform: translateX(0px);}
+  100% {transform: translateX(-69px);}
+}
+
+@keyframes textPosReverse {
+  0% {transform: translateX(-69px);}
+  100% {transform: translateX(0px);}
+}
+
+.pos1 div {
+  display: inline-block;
+  animation: textPos 0.5s ease-in-out forwards;
+}
+
+.pos2 div {
+  display: inline-block;
+  animation: textPosReverse 0.5s ease-in-out;
+}
+
+/* ---------------------------------------- mobile button ---------------------------------------- */
+.mobile-btn-position {
+  left: 0;
+  position: absolute;
+  width: 100vw;
+  display: none;
+  justify-content: flex-end;
+}
+
+.mobile-btn-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  /* background-color: #fff; */
+}
+
+.mobile-btn {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin: 26px 30px;
+  opacity: 0.7;
+  transition: transform 500ms ease-in-out, opacity 200ms ease-out;
+}
+
+.mobile-btn-content img {
+  padding: 15px;
+  margin: 15px;
+  transition: transform 500ms ease-in-out;
+}
+
+.mobile-btn-content img:hover {
+  transform: translate(
+    calc(var(--dock-offset-right, 0px) - var(--dock-offset-left, 0px)),
+    calc(var(--dock-offset-bottom, 0px) - var(--dock-offset-top, 0px))
+  );
+  transition: transform 100ms ease-out;
+}
+
+.mobile-btn:hover {
+  transform: translate(
+    calc(var(--dock-offset-right, 0px) - var(--dock-offset-left, 0px)),
+    calc(var(--dock-offset-bottom, 0px) - var(--dock-offset-top, 0px))
+  );
+  opacity: 1;
+  transition: transform 100ms ease-out, opacity 200ms ease-out;
+}
+
+.mobile-btn.active::after {
+  background-color: #242424;
+  opacity: 1;
+}
+
+.mobile-btn::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-color: #ffffffea;
+  border-radius: 50px;
+}
+
+.mobile-btn::before {
+  z-index: -1;
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #fff, #8d8d8d, #fff
+  );
+  position: absolute;
+  background-size: 600%;
+  width: calc(100% + 1px);
+  height: calc(100% + 1px);
+  filter: blur(6px);
+  animation: glow 20s linear infinite;
+  transition: opacity .3s ease-in-out;
+  border-radius: 50px;
+  opacity: 0;
+}
+
+@keyframes glow {
+  0%{background-position: 0 0;}
+  50%{background-position: 400% 0;}
+  100%{background-position: 0 0;}
+}
+
+.mobile-btn:hover::before {
+  opacity: 1;
+}
+
+.mobile-btn:active::after {
+  background: transparent;
+  transition: background 100ms ease-out;
+}
+
+
+/* ---------------------------------------- media queries ---------------------------------------- */
+@media (max-width: 750px) {
+  .dock-right-center {
+    display: none;
+  }
+
+  .mobile-btn-position {
+    display: flex;
+  }
+}

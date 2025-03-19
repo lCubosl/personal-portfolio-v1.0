@@ -1,0 +1,213 @@
+/* ---------------------------------------- general ---------------------------------------- */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------------------------------------- contact ---------------------------------------- */
+.contact {
+  display: block;
+  width: 100%;
+  z-index: 1;
+  font-size: 1.2rem;
+}
+
+.contact-container {
+  position: absolute;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* ---------------------------------------- toggle visibility ---------------------------------------- */
+.contact-container {
+  display: none;
+}
+
+.contact-container.visible {
+  display: block;
+  opacity: 1;
+}
+/* ---------------------------------------- contact details ---------------------------------------- */
+.contact-details-div {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.contact-details-li {
+  gap: 10px;
+  opacity: 0.6;
+}
+
+.contact-details-li:hover {
+  opacity: 1;
+  transition: opacity 200ms ease-in-out;
+}
+
+.contact-details-li a {
+  padding: 0.2rem 0.2rem 0.2rem 0;
+}
+
+.contact-details-flex {
+  display: flex;
+  align-items: center;
+}
+
+.circles {
+  display: inline-block;
+  width: 0px;
+  height: 0px;
+  margin-right: 0px;
+  background-color: #fff;
+  border-radius: 50%;
+}
+
+/* ---------------------------------------- socials animation ---------------------------------------- */
+  .contact-details-li:hover {
+    transform: translate(var(--btn-offset-x, 0px), var(--btn-offset-y, 0px));
+    transition: transform 100ms ease-out;
+  }
+
+  .contact-details-li:hover .circles{
+    width: 5px;
+    height: 5px;
+    margin-right: 10px;
+    transition: width 100ms ease-in-out, height 100ms ease-in-out, margin-right 100ms ease-in-out;
+  }
+
+/* ---------------------------------------- socials animation ---------------------------------------- */
+.socials-li:hover {
+  width: 70px;
+  height: 70px;
+  margin-top: -25px;
+}
+
+/* icon after */
+.socials-li:hover + .socials-li {
+  width: calc(60px + var(--dock-offset-right, 0px));
+  height: calc(60px + var(--dock-offset-right, 0px));
+  margin-top: calc(-12.5px + var(--dock-offset-right, 0px) * -1);
+}
+
+/* icon before */
+.socials-li:has(+ .socials-li:hover) {
+  width: calc(60px + var(--dock-offset-left, 0px));
+  height: calc(60px + var(--dock-offset-left, 0px));
+  margin-top: calc(-12.5px + var(--dock-offset-left, 0px) * -1);
+}
+
+/* ---------------------------------------- socials ---------------------------------------- */
+.contact-container-center {
+  z-index: 0;
+  position: absolute;
+  height: 100vh;
+  left: 30%;
+  display: flex;
+  align-items: center;
+}
+
+.contact-container-main {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: auto;
+  height: auto; 
+}
+
+.socials-div {
+  display: block;
+  width: 100%;
+}
+
+.socials-header {
+  position: relative;
+  font-size: 1.2rem;
+}
+
+.socials {
+  position: relative;
+  left: -10px;
+  top: 5px;
+}
+
+.socials-container ul {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+}
+
+.socials-li {
+  padding: 5px;
+  transition: width, height, margin-top, cubic-bezier(0.25, 1, 0.5, 1) 100ms;
+  width: 50px;
+  height: 50px;
+  position: relative;
+}
+
+.socials-li img {
+  width: 100%;
+  height: 100%;
+  opacity: 0.6;
+}
+
+.socials-li img:hover {
+  opacity: 1;
+  transition: opacity 200ms ease-in-out;
+}
+
+.socials-li a {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 12px;
+  color: #37383a;
+}
+
+.socials-li:hover .socials-text {
+  opacity: 1;
+  transition: opacity 200ms ease-in-out;
+}
+
+.socials-text {
+  position: absolute;
+  font-size: 0.9rem;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 100ms ease-in;
+  display: block;
+  background: rgba(255, 255, 255, 0.90);
+  padding: 8px;
+  border-radius: 12px;
+  height: 22px;
+  line-height: 0.4; /* centers text with bg */
+  width: auto;
+  box-shadow:rgba(0, 0, 0, 0.17) 0px 12px 8px 1px;
+  white-space: nowrap;
+}
+
+/* ---------------------------------------- media queries ---------------------------------------- */
+@media (max-height: 550px) {
+  .contact-container-center {
+    align-items: flex-start;
+    top: 150px;
+  }
+}
+
+@media (max-width: 550px) {
+  .contact-container-center {
+    left: auto;
+    justify-content: flex-start;
+  }
+
+  .contact-container-main {
+    padding: 10px 40px;
+  }
+}
