@@ -73,7 +73,7 @@ const Navbar = ({ handleAboutClick, handleContactClick, handleWorkClick, handleP
 
         {/* C code by luis marques */}
         <ul className={`nav-left ${mobileNavActive ? "hidden" : ""}`}>
-          <li className="appIcons" onMouseMove={handleAppHover}>
+          <li className="appIcons">
             <a href="">
              <div className="code-by" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}> 
               <span className={`${hoverElement ? "rotating" : "reverse"}`}>

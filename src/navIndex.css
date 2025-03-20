@@ -47,6 +47,14 @@ body{
   margin-bottom: -50px;
 }
 
+/* ensures "code by Luis Marques" doesn't change position */
+.nav-left .appIcons:hover {
+  left: auto;
+  right: auto;
+  top: auto;
+  bottom: auto;
+}
+
 .page {
   display: flex;
 }
