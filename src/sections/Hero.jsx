@@ -42,6 +42,7 @@ const Hero = ({ aboutActive, contactActive, workActive, projectsActive, mobileNa
         {/* navigation bar divider */}
         <div className="divider"></div>
         <div className={`name absolute ${contactActive || workActive || projectsActive || mobileNavActive ? "hidden" : ""}`}>
+          {/* crashed out. Decided to make .move-top-text disable the h4 to avoid further headhache */}
           <h4 className={`top-text ${aboutActive ? "move-top-text" : ""}`}>
             Luís Marques
           </h4>

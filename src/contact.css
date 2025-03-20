@@ -37,6 +37,7 @@ body {
   display: block;
   width: 100%;
   margin-bottom: 10px;
+  font-size: 2rem;
 }
 
 .contact-details-li {
@@ -127,13 +128,14 @@ body {
 
 .socials-header {
   position: relative;
-  font-size: 1.2rem;
+  font-size: 2rem;
 }
 
 .socials {
+  transform: scale(2);
   position: relative;
-  left: -10px;
-  top: 5px;
+  left: 170px;
+  top: 25px;
 }
 
 .socials-container ul {
@@ -198,6 +200,38 @@ body {
   .contact-container-center {
     align-items: flex-start;
     top: 150px;
+  }
+}
+
+@media (max-width: 1900px) {
+  .socials {
+    transform: scale(1.5);
+    left: 60px;
+    top: 15px;
+  }
+
+  .contact-details-div {
+    font-size: 1.5rem;
+  }
+  
+  .socials-header {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 1400px) {
+  .socials {
+    transform: scale(1);
+    left: -10px;
+    top: 5px;
+  }
+
+  .contact-details-div {
+    font-size: 1rem;
+  }
+  
+  .socials-header {
+    font-size: 1rem;
   }
 }
 

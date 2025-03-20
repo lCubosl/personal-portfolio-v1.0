@@ -32,6 +32,10 @@ body{
   background-color: #ffffffaf;
 }
 
+.nav-right {
+  font-size: 2rem;
+}
+
 .mobile-nav .text {
   font-size: .8rem;
   font-weight: bold;
@@ -91,6 +95,18 @@ body{
 }
 
 /* ---------------------------------------- media querries ---------------------------------------- */
+@media (max-width: 1900px) {
+  .nav-right {
+    font-size: 1.5rem;
+  }    
+}
+
+@media (max-width: 1400px) {
+  .nav-right {
+    font-size: 1rem;
+  }
+}
+
 @media (max-width: 750px) {
   .mobile-nav {
     display: flex;

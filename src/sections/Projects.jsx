@@ -468,7 +468,7 @@ const Projects = ({ projectsActive }) => {
               onMouseLeave={() => setHoverIndex(null)}
             >
               <div className="description-container">
-                <a className="work-link" href="https://colab.research.google.com/drive/1HKEYQNZ-Gv1Ft4H9jxrPycjLY9YtOyhG?usp=sharing" target="_blank"></a>
+                <a className="work-link" href=""></a>
                 <h3 className="position-title">Personal Portfolio · Web Dev <span className="work-arrow"><img src="/icons_01/arrow.svg" alt="arrow" /></span></h3>
                 <img className="project-image" src="projects_img/portfolio.png" alt="image1" />
 
