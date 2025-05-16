@@ -274,7 +274,7 @@ const Work = ({ workActive }) => {
               onMouseLeave={() => setHoverIndex(null)}
             >
               <div className="description-container">
-                <a className="work-link" href="https://drive.google.com/file/d/1aM6p9Gf6ZttuAy6aax4zecQiISFsiwdu/view?usp=sharing" target="_blank"></a>
+                <a className="work-link" href="https://drive.google.com/file/d/14ZPtzRg-3z6ulW0FiE0iOKGFBn0dgAtg/view?usp=sharing" target="_blank"></a>
                 <h3 className="position-title">View Full Resume <span className="work-arrow"><img src="/icons_01/arrow.svg" alt="arrow" /></span></h3>
               </div>
             </div>
